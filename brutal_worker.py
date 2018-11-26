@@ -3,7 +3,7 @@ import time
 import datetime
 from conductor import conductor
 
-file = open(str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))+".csv", "w")
+file = open("/root/logs/"+str(datetime.datetime.fromtimestamp(time.time()).strftime('%Y-%m-%d %H:%M:%S'))+".csv", "w")
 
 while True:
     try:
