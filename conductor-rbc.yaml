@@ -1,0 +1,15 @@
+kind: ClusterRoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: conductor
+  labels:
+    app: conductor
+subjects:
+- kind: ServiceAccount
+  name: conductor
+  namespace: exodus-common
+  apiGroup: ""
+roleRef:
+  kind: ClusterRole
+  name: conductor
+  apiGroup: ""
