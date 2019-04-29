@@ -1,0 +1,8 @@
+kind: ClusterRole
+apiVersion: rbac.authorization.k8s.io/v1beta1
+metadata:
+  name: conductor
+rules:
+- apiGroups: ["", "extensions", "apps", "batch"]
+  resources: ["deployments", "replicasets", "pods", "services", "endpoints", "namespaces", "configmaps", "daemonsets", "statefulsets", "events", "jobs", "cronjobs"]
+  verbs: ["get", "list", "watch"]
