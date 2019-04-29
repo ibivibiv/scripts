@@ -1,0 +1,28 @@
+##########################
+# Splunk Deployment Server
+##########################
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: splunk-deployment-server
+  namespace: default
+  labels:
+    app: splunk-deployment-server
+spec:
+  replicas: 1
+  revisionHistoryLimit: 10
+  template:
+    spec:
+      containers:
+      - name: splunk-deployment-server
+        image: splunk/splunk:latest
+        env:
+        - name: SPLUNK_INDEX
+          value: myindex
+        ports:
+          - name: splunk-api
+            containerPort: 8089
+            protocol: TCP
+          - name: splunk-web
+            containerPort: 8000
+            protocol: TCP
